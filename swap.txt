@@ -1,0 +1,15 @@
+DECLARE
+    a NUMBER := 10;
+    b NUMBER := 20;
+    temp NUMBER;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Before Swap: a = ' || a || ', b = ' || b);
+
+    -- Swapping logic
+    temp := a;
+    a := b;
+    b := temp;
+
+    DBMS_OUTPUT.PUT_LINE('After Swap: a = ' || a || ', b = ' || b);
+END;
+/
