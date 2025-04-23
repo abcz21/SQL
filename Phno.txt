@@ -1,0 +1,21 @@
+DECLARE
+    num NUMBER := 5;           -- Change this to any number for factorial
+    factorial NUMBER := 1;
+
+    phone VARCHAR2(20) := '9876543210';  -- Sample phone number
+BEGIN
+    -- Factorial Calculation
+    FOR i IN 1..num LOOP
+        factorial := factorial * i;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Factorial of ' || num || ' is: ' || factorial);
+
+    -- Phone number check
+    IF LENGTH(phone) = 10 THEN
+        DBMS_OUTPUT.PUT_LINE('Valid 10-digit phone number: ' || phone);
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Invalid phone number!');
+    END IF;
+END;
+/
