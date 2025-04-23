@@ -1,0 +1,11 @@
+DECLARE
+    i NUMBER := 1;
+    total NUMBER := 0;
+BEGIN
+    WHILE i <= 10 LOOP
+        total := total + i;
+        i := i + 1;
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Sum of first 10 numbers is: ' || total);
+END;
+/
