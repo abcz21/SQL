@@ -1,0 +1,26 @@
+DECLARE
+    CURSOR first_class_students IS
+        SELECT name FROM students WHERE marks BETWEEN 60 AND 74;
+
+    v_name students.name%TYPE;
+    no_record EXCEPTION;
+    found_flag BOOLEAN := FALSE;
+BEGIN
+    OPEN first_class_students;
+    LOOP
+        FETCH first_class_students INTO v_name;
+        EXIT WHEN first_class_students%NOTFOUND;
+        found_flag := TRUE;
+        DBMS_OUTPUT.PUT_LINE('First Class Student: ' || v_name);
+    END LOOP;
+    CLOSE first_class_students;
+
+    IF NOT found_flag THEN
+        RAISE no_record;
+    END IF;
+
+EXCEPTION
+    WHEN no_record THEN
+        DBMS_OUTPUT.PUT_LINE('No record found for First Class students.');
+END;
+/
